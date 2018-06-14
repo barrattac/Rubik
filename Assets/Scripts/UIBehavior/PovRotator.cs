@@ -32,10 +32,10 @@ public class PovRotator : MonoBehaviour
         switch (rotateDirection)    //nothing needs to happen on no rotate
         {
             case PoVRotateDirection.Right:
-                PoV.transform.Rotate(0, -90, 0);
+                PoV.transform.Rotate(0, 90, 0);
                 break;
             case PoVRotateDirection.Left:
-                PoV.transform.Rotate(0, 90, 0);
+                PoV.transform.Rotate(0, -90, 0);
                 break;
             case PoVRotateDirection.Up:
                 PoV.transform.Rotate(-90, 0, 0);

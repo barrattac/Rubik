@@ -3,7 +3,33 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - O
+  - G
+  - W
+  - B
+  - R
+  - Y
+  - GO
+  - OW
+  - OY
+  - BO
+  - GY
+  - BW
+  - BY
+  - GR
+  - RW
+  - RY
+  - BR
+  - GW
+  - GOW
+  - GOY
+  - BOW
+  - BOY
+  - GRW
+  - GRY
+  - BRW
+  - BRY
   layers:
   - Default
   - TransparentFX

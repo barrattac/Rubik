@@ -161,7 +161,31 @@ public class SideRotator : MonoBehaviour
     /// </summary>
     private void RotateOrangeSide()
     {
-        throw new NotImplementedException();
+        for (int f = 0; f < 3; f++)
+        {
+            for (int s = 0; s < 3; s++)
+            {
+                if (!(f == 1 && s == 1))
+                {
+                    Pieces[f, s, 0].transform.parent = Pieces[1, 1, 0].transform;
+                }
+            }
+        }
+        Pieces[1, 1, 0].transform.Rotate(-90, 0, 0);    //Rotate Clockwise
+
+        //Update Array with new locations
+        //Rotate Corners in Array
+        GameObject tl = Pieces[2, 0, 0];
+        Pieces[2, 0, 0] = Pieces[2, 2, 0];
+        Pieces[2, 2, 0] = Pieces[0, 2, 0];
+        Pieces[0, 2, 0] = Pieces[0, 0, 0];
+        Pieces[0, 0, 0] = tl;
+        //Rotate Edges in Array
+        GameObject tm = Pieces[1, 0, 0];
+        Pieces[1, 0, 0] = Pieces[2, 1, 0];
+        Pieces[2, 1, 0] = Pieces[1, 2, 0];
+        Pieces[1, 2, 0] = Pieces[0, 1, 0];
+        Pieces[0, 1, 0] = tm;
     }
 
     /// <summary>

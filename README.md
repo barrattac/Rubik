@@ -16,4 +16,4 @@ Space Bar - Changes rotation from clockwise to counter-clockwise (again is vice 
 Add Background.  
 Make rotations smooth (take time instead of instance).  
 Add on screen buttons for convenience.  
-
+Add Shuffle function.  

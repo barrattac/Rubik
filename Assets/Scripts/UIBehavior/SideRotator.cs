@@ -20,8 +20,50 @@ public class SideRotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            ShuffleCube();
+        }
         SetSideRotateDirection();
         RotateSide();
+    }
+
+    /// <summary>
+    /// Shuffles the cube.
+    /// </summary>
+    private void ShuffleCube()
+    {
+        System.Random rng = new System.Random();
+        int numberOfShuffleTurns = 25 + rng.Next()%500;   //Make 25-524 turns to shuffle cube.
+        for(int i = 0; i < numberOfShuffleTurns; i++)
+        {
+            int temp = rng.Next()%2;
+            DirectionToRotate = (SideRotateDirection)temp;
+            temp = 1 + rng.Next() % 6;
+            switch ((Side)temp)
+            {
+                case Side.White:
+                    RotateWhiteSide();
+                    break;
+                case Side.Yellow:
+                    RotateYellowSide();
+                    break;
+                case Side.Orange:
+                    RotateOrangeSide();
+                    break;
+                case Side.Red:
+                    RotateRedSide();
+                    break;
+                case Side.Blue:
+                    RotateBlueSide();
+                    break;
+                case Side.Green:
+                    RotateGreenSide();
+                    break;
+            }
+        }
+        SideToRotate = Side.None;
+        DirectionToRotate = SideRotateDirection.Clockwise;
     }
 
     /// <summary>

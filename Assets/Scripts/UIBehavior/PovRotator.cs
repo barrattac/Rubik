@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class PovRotator : MonoBehaviour
 {
+    public float rotationSpeed = 2;     //1 = 90 degrees per second; 2 = 90 degrees per half second.
     public IUIController[] UIControllers { get; set; }
     private Rigidbody PoV { get; set; }
     private PoVRotateDirection PoVRotateDirection { get; set; }
-    private Vector3 CurrentCubeRotation { get; set; }
+    private Vector3 CurrentCubeRotation { get; set; }   //<---This is needed, because Unity translates rotation angles at runtime making it impossible to get the current rotation.
     private Vector3 DesiredPoVRotatePosition { get; set; }
 
     //Intialize
@@ -49,28 +50,27 @@ public class PovRotator : MonoBehaviour
         {
             case PoVRotateDirection.Right:
                 DesiredPoVRotatePosition = new Vector3(DesiredPoVRotatePosition.x, DesiredPoVRotatePosition.y + 90, 0);
-                //PoV.transform.Rotate(0, 90, 0);
                 break;
             case PoVRotateDirection.Left:
                 DesiredPoVRotatePosition = new Vector3(DesiredPoVRotatePosition.x, DesiredPoVRotatePosition.y - 90, 0);
-                //PoV.transform.Rotate(0, -90, 0);
                 break;
             case PoVRotateDirection.Up:
                 DesiredPoVRotatePosition = new Vector3(DesiredPoVRotatePosition.x - 90, DesiredPoVRotatePosition.y, 0);
-                //PoV.transform.Rotate(-90, 0, 0);
                 break;
             case PoVRotateDirection.Down:
                 DesiredPoVRotatePosition = new Vector3(DesiredPoVRotatePosition.x + 90, DesiredPoVRotatePosition.y, 0);
-                //PoV.transform.Rotate(90, 0, 0);
                 break;
         }
     }
 
+    /// <summary>
+    /// Makes a slow rotation instead of instant.
+    /// </summary>
     private void SlowRotate()
     {
         float x = 0;
         float y = 0;
-        float rate = 90 * Time.deltaTime;
+        float rate = 90 * Time.deltaTime * rotationSpeed;
         if(CurrentCubeRotation.x < DesiredPoVRotatePosition.x)
         {
             x = Mathf.Clamp(rate, 0, DesiredPoVRotatePosition.x - CurrentCubeRotation.x);

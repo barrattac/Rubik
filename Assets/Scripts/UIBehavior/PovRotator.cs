@@ -6,12 +6,14 @@ public class PovRotator : MonoBehaviour
     public IUIController[] UIControllers { get; set; }
     private Rigidbody PoV { get; set; }
     private PoVRotateDirection PoVRotateDirection { get; set; }
+    private Vector3 CurrentCubeRotation { get; set; }
     private Vector3 DesiredPoVRotatePosition { get; set; }
 
     //Intialize
     public void Start()
     {
         PoV = GetComponent<Rigidbody>();
+        CurrentCubeRotation = new Vector3(0, 0, 0);
         DesiredPoVRotatePosition = new Vector3(0, 0, 0);
         this.UIControllers = GameObject.FindWithTag("UIController").GetComponentsInChildren<IUIController>();
     }
@@ -22,6 +24,7 @@ public class PovRotator : MonoBehaviour
         SetPoVRotateDirection();
         PoVRotate(GetPoVRotateDirection());
         PerformControllerActions();
+        SlowRotate();
     }
 
     /// <summary>
@@ -45,18 +48,47 @@ public class PovRotator : MonoBehaviour
         switch (rotateDirection)    //nothing needs to happen on no rotate
         {
             case PoVRotateDirection.Right:
-                PoV.transform.Rotate(0, 90, 0);
+                DesiredPoVRotatePosition = new Vector3(DesiredPoVRotatePosition.x, DesiredPoVRotatePosition.y + 90, 0);
+                //PoV.transform.Rotate(0, 90, 0);
                 break;
             case PoVRotateDirection.Left:
-                PoV.transform.Rotate(0, -90, 0);
+                DesiredPoVRotatePosition = new Vector3(DesiredPoVRotatePosition.x, DesiredPoVRotatePosition.y - 90, 0);
+                //PoV.transform.Rotate(0, -90, 0);
                 break;
             case PoVRotateDirection.Up:
-                PoV.transform.Rotate(-90, 0, 0);
+                DesiredPoVRotatePosition = new Vector3(DesiredPoVRotatePosition.x - 90, DesiredPoVRotatePosition.y, 0);
+                //PoV.transform.Rotate(-90, 0, 0);
                 break;
             case PoVRotateDirection.Down:
-                PoV.transform.Rotate(90, 0, 0);
+                DesiredPoVRotatePosition = new Vector3(DesiredPoVRotatePosition.x + 90, DesiredPoVRotatePosition.y, 0);
+                //PoV.transform.Rotate(90, 0, 0);
                 break;
         }
+    }
+
+    private void SlowRotate()
+    {
+        float x = 0;
+        float y = 0;
+        float rate = 90 * Time.deltaTime;
+        if(CurrentCubeRotation.x < DesiredPoVRotatePosition.x)
+        {
+            x = Mathf.Clamp(rate, 0, DesiredPoVRotatePosition.x - CurrentCubeRotation.x);
+        }
+        else if (CurrentCubeRotation.x > DesiredPoVRotatePosition.x)
+        {
+            x = Mathf.Clamp(0 - rate, DesiredPoVRotatePosition.x - CurrentCubeRotation.x, 0);
+        }
+        if (CurrentCubeRotation.y < DesiredPoVRotatePosition.y)
+        {
+            y = Mathf.Clamp(rate, 0, DesiredPoVRotatePosition.y - CurrentCubeRotation.y);
+        }
+        else if (CurrentCubeRotation.y > DesiredPoVRotatePosition.y)
+        {
+            y = Mathf.Clamp(0 - rate, DesiredPoVRotatePosition.y - CurrentCubeRotation.y, 0);
+        }
+        PoV.transform.Rotate(x, y, 0);
+        CurrentCubeRotation = new Vector3(CurrentCubeRotation.x + x, CurrentCubeRotation.y + y, 0);
     }
 
     /// <summary>

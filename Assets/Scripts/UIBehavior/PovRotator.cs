@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PovRotator : MonoBehaviour
 {
+    public IUIController[] UIControllers { get; set; }
     private Rigidbody PoV { get; set; }
     private PoVRotateDirection PoVRotateDirection { get; set; }
     private Vector3 DesiredPoVRotatePosition { get; set; }
@@ -11,6 +13,7 @@ public class PovRotator : MonoBehaviour
     {
         PoV = GetComponent<Rigidbody>();
         DesiredPoVRotatePosition = new Vector3(0, 0, 0);
+        this.UIControllers = GameObject.FindWithTag("UIController").GetComponentsInChildren<IUIController>();
     }
 
     //Called every frame
@@ -18,6 +21,19 @@ public class PovRotator : MonoBehaviour
     {
         SetPoVRotateDirection();
         PoVRotate(GetPoVRotateDirection());
+        PerformControllerActions();
+    }
+
+    /// <summary>
+    /// Performs all of the PoV rotate actions for all the controllers
+    /// </summary>
+    private void PerformControllerActions()
+    {
+        foreach (IUIController controller in this.UIControllers)
+        {
+            PoVRotate(controller.GetDirectionToRotatePoV());
+            controller.FinishedPoVRotate();
+        }
     }
 
     /// <summary>
@@ -80,6 +96,7 @@ public class PovRotator : MonoBehaviour
     }
 }
 
+[Serializable]
 public enum PoVRotateDirection
 {
     None,

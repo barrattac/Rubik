@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SideRotator : MonoBehaviour
 {
+    public IUIController[] UIControllers { get; set; }
     private GameObject[,,] SolvedLocation { get; set; }
     private GameObject[,,] Pieces { get; set; }
     private Side SideToRotate { get; set; }
@@ -15,6 +15,8 @@ public class SideRotator : MonoBehaviour
     {
         SetRubikCubeStart();
         DirectionToRotate = SideRotateDirection.Clockwise;
+        this.UIControllers = GameObject.FindWithTag("UIController").GetComponentsInChildren<IUIController>();
+
     }
 
     // Update is called once per frame
@@ -26,6 +28,29 @@ public class SideRotator : MonoBehaviour
         }
         SetSideRotateDirection();
         RotateSide();
+        PerformControllerActions();
+    }
+
+    /// <summary>
+    /// Performs all of the Side rotate actions for all the controllers
+    /// </summary>
+    private void PerformControllerActions()
+    {
+        foreach (IUIController controller in this.UIControllers)
+        {
+            if (controller.ShuffleDesired())
+            {
+                ShuffleCube();
+                controller.CubeShuffled();
+            }
+            else
+            {
+                this.SideToRotate = controller.GetSideToRotate();
+                this.DirectionToRotate = controller.GetDirectionToRotate();
+                RotateSide();
+                controller.FinishedSideRotate();
+            }
+        }
     }
 
     /// <summary>
@@ -398,6 +423,7 @@ public enum Pieces
     GRY
 }
 
+[Serializable]
 public enum Side
 {
     None,
@@ -409,6 +435,7 @@ public enum Side
     Green
 }
 
+[Serializable]
 public enum SideRotateDirection
 {
     Clockwise,

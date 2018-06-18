@@ -1,5 +1,4 @@
 sceneSetups:
-- path: C:/Users/barra/OneDrive/Documents/UnityProjects/Unity-Cube-Simulator-3x3x3/Assets/Cube
-    Simulator 3x3x3/Scenes/Game.unity
+- path: Assets/_Scenes/Main.unity
   isLoaded: 1
   isActive: 1

@@ -313,7 +313,8 @@
     <Compile Include="Assets\Scripts\UIBehavior\IUIController.cs" />
     <Compile Include="Assets\Scripts\UIBehavior\OnClickActionController.cs" />
     <Compile Include="Assets\Scripts\UIBehavior\PovRotator.cs" />
-    <Compile Include="Assets\Scripts\UIBehavior\SideRotator.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\SideRotationGroup.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\SlowSideRotator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\barra\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />

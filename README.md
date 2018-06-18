@@ -14,14 +14,14 @@ Space Bar - Changes rotation from clockwise to counter-clockwise (again is vice 
 
 ## Version 2: Status Complete
 Now has Background.  
-Rotations are now smoother (takes time instead of instant). 
+Rotations are now smoother (takes time instead of instant).  
 On screen buttons for convenience.  
-Shuffle function to mix up Cube.
-Rear Camera to view back of Cube.
+Shuffle function to mix up Cube.  
+Rear Camera to view back of Cube.  
 
 ## Version 3: Planned
-Add music
-Add sound effects
+Add music.  
+Add sound effects.  
 
 ## Version 4: Planned
-Add Solve Functions
+Add Solve Functions.  

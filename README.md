@@ -12,8 +12,16 @@ B Key - Rotates Blue side.
 G Key - Rotates Green side.  
 Space Bar - Changes rotation from clockwise to counter-clockwise (again is vice verse).
 
-## Version 2: Planned
+## Version 2: Status Complete
 Add Background.  
 Make rotations smooth (take time instead of instant).  
 Add on screen buttons for convenience.  
-Add Shuffle function.  
+Add Shuffle function.
+Added Rear Camera
+
+## Version 3: Planned
+Add music
+Add sound effects
+
+## Version 4: Planned
+Add Solve Functions

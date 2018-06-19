@@ -32,6 +32,7 @@ TagManager:
   - BRY
   - UIContollers
   - UIController
+  - Cube
   layers:
   - Default
   - TransparentFX

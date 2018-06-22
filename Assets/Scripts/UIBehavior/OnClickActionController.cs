@@ -8,12 +8,22 @@ public class OnClickActionController : MonoBehaviour, IUIController
         this.Side = Side.None;
         this.Direction = SideRotateDirection.Clockwise;
         this.NeedsShuffle = false;
+        //this.SceneMenu = GameObject.FindGameObjectWithTag("MenuMainScene");
     }
 
     private PoVRotateDirection PovRotateDirection { get; set; }
     private Side Side { get; set; }
     private SideRotateDirection Direction { get; set; }
     private bool NeedsShuffle { get; set; }
+    public GameObject SceneMenu;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            this.SceneMenu.SetActive(!this.SceneMenu.activeSelf);
+        }
+    }
 
     /// <summary>
     /// Actions called from the input device

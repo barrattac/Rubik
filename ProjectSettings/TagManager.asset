@@ -35,6 +35,7 @@ TagManager:
   - Cube
   - BGMCheckbox
   - SFXCheckbox
+  - MenuMainScene
   layers:
   - Default
   - TransparentFX

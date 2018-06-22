@@ -11,7 +11,7 @@ public class SlowSideRotator : MonoBehaviour
     private SideRotateDirection RotationDirection { get; set; }
     private List<SideRotationGroup> RotationList { get; set; }
     private bool isShuffling = false;
-    private AudioSource audio;
+    private AudioSource SFXAudio { get; set; }
 
     // Use this for initialization
     void Start()
@@ -20,7 +20,7 @@ public class SlowSideRotator : MonoBehaviour
         RotationDirection = SideRotateDirection.Clockwise;
         RotationList = new List<SideRotationGroup>();
         this.UIControllers = GameObject.FindWithTag("UIController").GetComponentsInChildren<IUIController>();
-        audio = GameObject.FindWithTag("Cube").GetComponent<AudioSource>();
+        SFXAudio = GameObject.FindWithTag("Cube").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,13 +40,13 @@ public class SlowSideRotator : MonoBehaviour
 
     void LateUpdate()
     {
-        if(this.RotationList.Count > 0 && !audio.isPlaying)
+        if(this.RotationList.Count > 0 && !SFXAudio.isPlaying)
         {
-            audio.Play();
+            SFXAudio.Play();
         }
-        else if(this.RotationList.Count == 0 && audio.isPlaying)
+        else if(this.RotationList.Count == 0 && SFXAudio.isPlaying)
         {
-            audio.Stop();
+            SFXAudio.Stop();
         }
     }
 

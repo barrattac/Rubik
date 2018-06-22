@@ -311,6 +311,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Settings.cs" />
     <Compile Include="Assets\Scripts\UIBehavior\IUIController.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\MenuMainSceneController.cs" />
     <Compile Include="Assets\Scripts\UIBehavior\OnClickActionController.cs" />
     <Compile Include="Assets\Scripts\UIBehavior\PovRotator.cs" />
     <Compile Include="Assets\Scripts\UIBehavior\SideRotationGroup.cs" />

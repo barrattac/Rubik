@@ -33,6 +33,8 @@ TagManager:
   - UIContollers
   - UIController
   - Cube
+  - BGMCheckbox
+  - SFXCheckbox
   layers:
   - Default
   - TransparentFX

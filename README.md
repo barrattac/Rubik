@@ -19,9 +19,10 @@ On screen buttons for convenience.
 Shuffle function to mix up Cube.  
 Rear Camera to view back of Cube.  
 
-## Version 3: Planned
-Add music.  
-Add sound effects.  
+## Version 3: Status Complete
+Added background music.  
+Added sound effects.  
+P Key - Now Open and Closes Menu for Main Scene.  
 
 ## Version 4: Planned
 Add Solve Functions.  

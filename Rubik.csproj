@@ -309,14 +309,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Settings.cs" />
-    <Compile Include="Assets\Scripts\UIBehavior\IUIController.cs" />
-    <Compile Include="Assets\Scripts\UIBehavior\MenuMainSceneController.cs" />
-    <Compile Include="Assets\Scripts\UIBehavior\OnClickActionController.cs" />
-    <Compile Include="Assets\Scripts\UIBehavior\PovRotator.cs" />
-    <Compile Include="Assets\Scripts\UIBehavior\SideRotationGroup.cs" />
-    <Compile Include="Assets\Scripts\UIBehavior\SlowSideRotator.cs" />
-    <Compile Include="Assets\Scripts\UIBehavior\SoundController.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\InputColorChanger.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\IUIController.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\MenuMainSceneController.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\OnClickActionController.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\PovRotator.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\SideRotationGroup.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\SlowSideRotator.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\SoundController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\barra\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />

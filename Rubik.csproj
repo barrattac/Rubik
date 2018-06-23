@@ -317,6 +317,7 @@
     <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\SideRotationGroup.cs" />
     <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\SlowSideRotator.cs" />
     <Compile Include="Assets\Scripts\UIBehavior\MainSceneScripts\SoundController.cs" />
+    <Compile Include="Assets\Scripts\UIBehavior\OutputController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\barra\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />
